@@ -1,6 +1,5 @@
 package org.school.mathematics;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
@@ -11,26 +10,11 @@ public class Student {
     private char grade;
     private char group;
     private static final String secretNickname = "MySecretNickName";
-    private List gradeList = new ArrayList<Character>();
+    private List<Character> gradeList = List.of('F','E','D','C','B','A');
 
-    private List groupList = new ArrayList<Character>();
-
-    {
-        gradeList.add('F');
-        gradeList.add('E');
-        gradeList.add('D');
-        gradeList.add('C');
-        gradeList.add('B');
-        gradeList.add('A');
-
-        groupList.add(1);
-        groupList.add(2);
-        groupList.add(3);
-        groupList.add(4);
-        groupList.add(5);
+    private List<Character> groupList = List.of('1','2','3','4','5');
 
 
-    }
     public Student(String name, char grade, char group) {
         this.name = name;
         if(gradeList.contains(grade)){
@@ -67,5 +51,5 @@ public class Student {
             grade = (char) gradeList.get(--index);
         }
     }
-    
+
 }
