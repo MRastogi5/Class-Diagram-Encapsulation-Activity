@@ -10,7 +10,7 @@ public class Student {
     private String name;
     private char grade;
     private char group;
-    private String secretNickname = "MySecretNickName";
+    private static final String secretNickname = "MySecretNickName";
     private List gradeList = new ArrayList<Character>();
 
     private List groupList = new ArrayList<Character>();
@@ -36,8 +36,14 @@ public class Student {
         if(gradeList.contains(grade)){
             this.grade = grade;
         }
+        else {
+            throw new IllegalArgumentException("Invalid Grade.");
+        }
         if(groupList.contains(group)){
             this.group = group;
+        }
+        else {
+            throw new IllegalArgumentException("Invalid Group.");
         }
     }
 
@@ -51,8 +57,7 @@ public class Student {
 
     public void gradeUp(){
         int index = gradeList.indexOf(grade);
-        System.out.println("index :" + index);
-        if(index<gradeList.size()- ONE){
+        if(index<gradeList.size() - ONE){
             grade = (char) gradeList.get(++index);
         }
     }
@@ -62,6 +67,5 @@ public class Student {
             grade = (char) gradeList.get(--index);
         }
     }
-
-
+    
 }
